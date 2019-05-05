@@ -334,7 +334,7 @@ class AsyncRequest(Request):
             _conv.events.store(EV_FAULT, State(_conv.test_id, ERROR,
                                                message=err,
                                                context='parse_response'))
-            return inut.err_response("run_sequence", err)
+            return None
         except (VerificationError, MissingRequiredAttribute) as err:
             self.conv.events.store(EV_FAULT, err)
             inut.err_response("run_sequence", err)
